@@ -1,4 +1,4 @@
-# Hospital Analytics Dashboar
+# Hospital Analytics Dashboard
 
 An interactive, 3-page dashboard built with plain **HTML, CSS and JavaScript** on top of a **Snowflake Schema** dataset.
 It analyses hospital appointments, doctors, patients and consultation fees across 4 hospitals, 4 cities and 3 states (Jan–Jun 2025).
@@ -90,4 +90,4 @@ hospital-analytics-dashboard/
 ## Author
 
 **Your Name**
-GitHub: [your-username](https://github.com/your-username) | LinkedIn: [your-profile](https://www.linkedin.com/in/soumyadipdhara1/)
+GitHub: [your-username](https://github.com/soumyadipda) | LinkedIn: [your-profile](https://www.linkedin.com/in/soumyadipdhara1/)
