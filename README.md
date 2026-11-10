@@ -5,6 +5,42 @@ It analyses hospital appointments, doctors, patients and consultation fees acros
 
 > Fees shown are **listed consultation fees**, not revenue.
 
+### Dataset (`data/`)
+
+| Table | Type | Rows | Key columns |
+|---|---|---|---|
+| `fact_appointments` | Fact | 100 | appointment_id, appointment_date, patient_id, doctor_id, hospital_id, status, listed_fee |
+| `dim_patient` | Dimension | 30 | patient_name, gender, age, age_group |
+| `dim_doctor` | Dimension | 10 | doctor_name, department_id, specialization_id |
+| `dim_hospital` | Dimension | 4 | hospital_name, city_id |
+| `dim_city` | Sub-dimension | 4 | city_name, state_id |
+| `dim_state` | Sub-dimension | 3 | state_name |
+| `dim_department` | Sub-dimension | 5 | department_name |
+| `dim_specialization` | Sub-dimension | 4 | specialization_name |
+
+## Data Model: Snowflake Schema
+
+This project is built on a **Snowflake Schema**. The central fact table holds the measurable events (appointments and fees).
+The dimension tables are **normalised into sub-dimensions**, so no descriptive data is repeated:
+
+- `dim_hospital` → `dim_city` → `dim_state` (location hierarchy)
+- `dim_doctor` → `dim_department` and `dim_specialization`
+
+```mermaid
+erDiagram
+    fact_appointments }o--|| dim_patient : patient_id
+    fact_appointments }o--|| dim_doctor : doctor_id
+    fact_appointments }o--|| dim_hospital : hospital_id
+    dim_doctor }o--|| dim_department : department_id
+    dim_doctor }o--|| dim_specialization : specialization_id
+    dim_hospital }o--|| dim_city : city_id
+    dim_city }o--|| dim_state : state_id
+```
+
+**Why Snowflake?** Hospital location and doctor specialization are hierarchies. Normalising them avoids duplicate text,
+keeps names consistent, and lets one change (for example a city rename) update everywhere.
+The dashboard rebuilds a flat view with simple joins (see `index.html`, section 1) before drawing charts.
+
 ## Dashboard Pages
 
 ### Page 1: Hospital Overview
@@ -39,41 +75,6 @@ It analyses hospital appointments, doctors, patients and consultation fees acros
 
 Every chart is clickable: click a bar, slice or row to filter the whole page. Click it again (or use **Reset Filters**) to clear.
 
-## Data Model: Snowflake Schema
-
-This project is built on a **Snowflake Schema**. The central fact table holds the measurable events (appointments and fees).
-The dimension tables are **normalised into sub-dimensions**, so no descriptive data is repeated:
-
-- `dim_hospital` → `dim_city` → `dim_state` (location hierarchy)
-- `dim_doctor` → `dim_department` and `dim_specialization`
-
-```mermaid
-erDiagram
-    fact_appointments }o--|| dim_patient : patient_id
-    fact_appointments }o--|| dim_doctor : doctor_id
-    fact_appointments }o--|| dim_hospital : hospital_id
-    dim_doctor }o--|| dim_department : department_id
-    dim_doctor }o--|| dim_specialization : specialization_id
-    dim_hospital }o--|| dim_city : city_id
-    dim_city }o--|| dim_state : state_id
-```
-
-**Why Snowflake?** Hospital location and doctor specialization are hierarchies. Normalising them avoids duplicate text,
-keeps names consistent, and lets one change (for example a city rename) update everywhere.
-The dashboard rebuilds a flat view with simple joins (see `index.html`, section 1) before drawing charts.
-
-### Dataset (`data/`)
-
-| Table | Type | Rows | Key columns |
-|---|---|---|---|
-| `fact_appointments` | Fact | 100 | appointment_id, appointment_date, patient_id, doctor_id, hospital_id, status, listed_fee |
-| `dim_patient` | Dimension | 30 | patient_name, gender, age, age_group |
-| `dim_doctor` | Dimension | 10 | doctor_name, department_id, specialization_id |
-| `dim_hospital` | Dimension | 4 | hospital_name, city_id |
-| `dim_city` | Sub-dimension | 4 | city_name, state_id |
-| `dim_state` | Sub-dimension | 3 | state_name |
-| `dim_department` | Sub-dimension | 5 | department_name |
-| `dim_specialization` | Sub-dimension | 4 | specialization_name |
 
 ## Project Structure
 
