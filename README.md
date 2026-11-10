@@ -90,4 +90,4 @@ hospital-analytics-dashboard/
 ## Author
 
 **Your Name**
-GitHub: [your-username](https://github.com/your-username) | LinkedIn: [your-profile](https://www.linkedin.com/in/your-profile)
+GitHub: [your-username](https://github.com/your-username) | LinkedIn: [your-profile](https://www.linkedin.com/in/soumyadipdhara1/)
