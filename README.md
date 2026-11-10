@@ -18,7 +18,7 @@ It analyses hospital appointments, doctors, patients and consultation fees acros
 | **Answers** | Which hospital and department are busiest, and how many appointments are actually completed? |
 
 ### Page 2: Doctors & Patients
-![Doctors and Patients](images/page-2-doctors-patients.png)
+![Doctors and Patients](https://github.com/soumyadipda/Hospital-Analytics-Dashboard-Power-BI_Claude.ai/blob/main/Hospital%20Analytics%20Page%202.png)
 
 | | |
 |---|---|
