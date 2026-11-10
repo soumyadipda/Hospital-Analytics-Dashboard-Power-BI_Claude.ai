@@ -8,7 +8,7 @@ It analyses hospital appointments, doctors, patients and consultation fees acros
 ## Dashboard Pages
 
 ### Page 1: Hospital Overview
-![Hospital Overview](images/page-1-hospital-overview.png)
+![Hospital Overview](https://github.com/soumyadipda/Hospital-Analytics-Dashboard-Power-BI_Claude.ai/blob/main/Hospital%20Analytics%20Page%201.png)
 
 | | |
 |---|---|
