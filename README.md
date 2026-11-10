@@ -1,4 +1,4 @@
-# Hospital Analytics Dashboard
+# Hospital Analytics Dashboar
 
 An interactive, 3-page dashboard built with plain **HTML, CSS and JavaScript** on top of a **Snowflake Schema** dataset.
 It analyses hospital appointments, doctors, patients and consultation fees across 4 hospitals, 4 cities and 3 states (Jan–Jun 2025).
@@ -75,9 +75,6 @@ The dashboard rebuilds a flat view with simple joins (see `index.html`, section 
 | `dim_department` | Sub-dimension | 5 | department_name |
 | `dim_specialization` | Sub-dimension | 4 | specialization_name |
 
-The data is **synthetic** (created for learning and portfolio use), with no real patient information.
-`data/data.js` is the same data in JavaScript form so the dashboard works by simply opening `index.html`.
-
 ## Project Structure
 
 ```
@@ -88,18 +85,6 @@ hospital-analytics-dashboard/
 ├── scripts/generate_data.py  # Rebuilds the dataset
 └── README.md
 ```
-
-## How to Run
-
-1. Clone the repo: `git clone https://github.com/your-username/hospital-analytics-dashboard.git`
-2. Open `index.html` in any browser. No installation is needed.
-3. Optional: run `python scripts/generate_data.py` to regenerate the dataset.
-
-To host it online, enable **GitHub Pages** (Settings → Pages → branch `main` → `/root`).
-
-## Tech Stack
-
-HTML5 · CSS3 · Vanilla JavaScript (SVG charts, no libraries) · Python (data generation)
 
 ## Author
 
