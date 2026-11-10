@@ -28,7 +28,7 @@ It analyses hospital appointments, doctors, patients and consultation fees acros
 | **Answers** | Who handles the most appointments, and what does the patient base look like? |
 
 ### Page 3: Fees & Location
-![Fees and Location](images/page-3-fees-location.png)
+![Fees and Location](https://github.com/soumyadipda/Hospital-Analytics-Dashboard-Power-BI_Claude.ai/blob/main/Hospital%20Analytics%20Page%203.png)
 
 | | |
 |---|---|
